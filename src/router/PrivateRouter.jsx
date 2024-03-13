@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthProvider";
 const PrivateRouter = () => {
   const { user } = useContext(AuthContext);
 
-  return user.email && user.pass ? (
+  return user ? (
     <>
       <Navbar />
       <Outlet />

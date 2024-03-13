@@ -21,8 +21,8 @@
     padding: 0.6rem;
     @apply focus:outline-main focus:caret-main;
   }
-  .login-input::placeholder{
-    color: #CDCDCD;
-    @apply font-montserrat text-[14px] font-[400]
+  .login-input::placeholder {
+    color: #cdcdcd;
+    @apply font-montserrat text-[14px] font-[400];
   }
 }

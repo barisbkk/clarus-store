@@ -7,15 +7,15 @@ const ProductDetail = () => {
   const { title: params } = useParams();
   const { state, search } = useLocation();
   const { thumbnail, title, description, category, price, images } = state;
-  // const getDetailData = async () => {
-  //   const { data } = await axios(
-  //     `https://dummyjson.com/products/search?q=${search.split("=")[1]}`
-  //   );
-  //   console.log(data);
-  // };
-  // useEffect(() => {
-  //   getDetailData();
-  // }, []);
+  const getDetailData = async () => {
+    const { data } = await axios(
+      `https://dummyjson.com/products/search?q=${search.split("=")[1]}`
+    );
+    console.log(data);
+  };
+  useEffect(() => {
+    getDetailData();
+  }, []);
 
   return (
     <div className="container">

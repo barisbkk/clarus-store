@@ -11,6 +11,7 @@ const ProductDetail = () => {
     const { data } = await axios(
       `https://dummyjson.com/products/search?q=${search.split("=")[1]}`
     );
+    console.log(data);
   };
   useEffect(() => {
     getDetailData();

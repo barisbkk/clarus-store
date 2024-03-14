@@ -6,7 +6,7 @@ const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/dashboard/products/${title}`, { state: item });
+    navigate(`/dashboard/products/${title}?detail=${item.id}`, { state: item });
   };
 
   return (

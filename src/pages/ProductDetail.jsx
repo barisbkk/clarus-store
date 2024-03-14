@@ -1,11 +1,20 @@
-import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const ProductDetail = () => {
+  const navigate = useNavigate();
   const { title: params } = useParams();
-  const { state } = useLocation();
+  const { state, search } = useLocation();
   const { thumbnail, title, description, category, price, images } = state;
-  console.log(state);
+  const getDetailData = async () => {
+    const { data } = await axios(
+      `https://dummyjson.com/products/search?q=${search.split("=")[1]}`
+    );
+  };
+  useEffect(() => {
+    getDetailData();
+  }, []);
 
   return (
     <div className="container">
@@ -16,15 +25,15 @@ const ProductDetail = () => {
               <img
                 className="h-full w-full rounded-lg"
                 src={thumbnail}
-                alt={title}
+                alt=""
               />
             </div>
             <div className="grid grid-cols-3 gap-4 row-span-1">
-              {images.slice(images.lenght - 1).map((item, i) => (
+              {images.slice(0, images.length - 2).map((item, i) => (
                 <div key={i}>
                   <img
-                    className="h-[15vh] w-full rounded-lg"
-                    src={title}
+                    className="h-[15vh] w-full rounded-lg border"
+                    src={item}
                     alt=""
                     loading="lazy"
                   />
@@ -46,10 +55,16 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="flex justify-end gap-3 mt-4">
-              <button className="border rounded-lg bg-labelColor text-white p-2">
+              <button
+                onClick={() => navigate(-1)}
+                className="border rounded-lg bg-labelColor text-white p-2"
+              >
                 Geri
               </button>
-              <button className="border rounded-lg bg-main text-white p-2">
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="border rounded-lg bg-main text-white p-2"
+              >
                 Ana Sayfaya Dön
               </button>
             </div>

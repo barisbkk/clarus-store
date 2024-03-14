@@ -29,7 +29,7 @@ const Products = () => {
   }, [search]); //! search statesi değiştikçe getData fonksiyonu çalışsın
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div className="container">
       <SearchInput search={search} setSearch={setSearch} />
       <h2 className="text-2xl font-bold mt-8 tracking-tight text-gray-900">
         All Products
@@ -37,9 +37,9 @@ const Products = () => {
       {loading ? (
         <Loading />
       ) : products.length ? (
-        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
+        <div className="card-div">
           {products.map((item) => (
-            <ProductCard item={item} />
+            <ProductCard key={item.id} item={item} />
           ))}
         </div>
       ) : (

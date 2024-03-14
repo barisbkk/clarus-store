@@ -25,4 +25,10 @@
     color: #cdcdcd;
     @apply font-montserrat text-[14px] font-[400];
   }
+  .card-div {
+    @apply mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8;
+  }
+  .container {
+    @apply mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8;
+  }
 }

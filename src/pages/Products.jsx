@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SearchInput from "../components/SearchInput";
 import ProductCard from "../components/ProductCard";
-import axios, { getAdapter } from "axios";
+import Loading from "../components/Loading";
+import axios from "axios";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -33,9 +34,17 @@ const Products = () => {
       <h2 className="text-2xl font-bold mt-8 tracking-tight text-gray-900">
         All Products
       </h2>
-      <div>
-        <ProductCard />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : products.length ? (
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
+          {products.map((item) => (
+            <ProductCard item={item} />
+          ))}
+        </div>
+      ) : (
+        <h2 className="text-center text-3xl text-red-600 mt-32">No Products</h2>
+      )}
     </div>
   );
 };

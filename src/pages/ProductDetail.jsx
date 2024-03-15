@@ -32,14 +32,12 @@ const ProductDetail = () => {
             <div className="grid grid-cols-3 gap-4 row-span-1">
               {images.slice(0, images.length - 2).map((item, i) => (
                 <div key={i}>
-                  <a data-fslightbox href={item}>
-                    <img
-                      className="h-[15vh] w-full rounded-lg border"
-                      src={item}
-                      alt="products"
-                      loading="lazy"
-                    />
-                  </a>
+                  <img
+                    className="h-[15vh] w-full rounded-lg border"
+                    src={item}
+                    alt="products"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const NotFound = () => {
   const [count, setCount] = useState(10);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setCount((prev) => (prev === 0 ? prev : prev - 1)); // prev sayesinde statenin hep en güncel değerini yakalayabiliyoruz.

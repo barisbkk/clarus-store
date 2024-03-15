@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const NotFound = () => {
   const [count, setCount] = useState(10);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCount((prev) => (prev === 0 ? prev : prev - 1)); // prev sayesinde statein hep en gücenl değerini yakalayabiliyoruz.
+      setCount((prev) => (prev === 0 ? prev : prev - 1)); // prev sayesinde statenin hep en güncel değerini yakalayabiliyoruz.
     }, 1000);
     return () => clearInterval(timer);
   }, []);

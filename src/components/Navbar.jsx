@@ -26,8 +26,8 @@ const Navbar = () => {
   console.log(location);
 
   return (
-    <nav className="bg-gray-400 md:text-sm">
-      <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
+    <nav className="bg-gray-400 md:text-sm ">
+      <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8 ">
         <div className="flex items-center justify-between py-5 md:block">
           <a
             href="https://clarusway.com/"
@@ -44,7 +44,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setShow(!show)}
-              className="menu-btn text-gray-500 hover:text-gray-800"
+              className="text-gray-500 hover:text-gray-800"
             >
               {show ? closeNavbar : openNavbar}
             </button>
